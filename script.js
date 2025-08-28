@@ -112,20 +112,37 @@ function gameLoop() {
   }
 }
 
-// Controles
+// Función para controlar el vuelo o reiniciar juego
+function flap() {
+  bird.velocity = bird.lift;
+  if (gameOver) {
+    bird.y = 150;
+    bird.velocity = 0;
+    pipes = [];
+    frame = 0;
+    score = 0;
+    gameOver = false;
+    gameLoop();
+  }
+}
+
+// Eventos para móvil y desktop
+
+// Evento touch para móviles
+window.addEventListener('touchstart', (e) => {
+  e.preventDefault(); // Evitar scroll al tocar
+  flap();
+}, { passive: false });
+
+// Evento click para desktop (opcional)
+window.addEventListener('click', () => {
+  flap();
+});
+
+// Evento teclado (barra espaciadora)
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
-    bird.velocity = bird.lift;
-    if (gameOver) {
-      // Reiniciar juego
-      bird.y = 150;
-      bird.velocity = 0;
-      pipes = [];
-      frame = 0;
-      score = 0;
-      gameOver = false;
-      gameLoop();
-    }
+    flap();
   }
 });
 
@@ -134,7 +151,7 @@ birdImage.onload = function () {
   gameLoop();
 };
 
-// ✅ Registrar Service Worker para PWA
+// Registrar Service Worker para PWA
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js')
