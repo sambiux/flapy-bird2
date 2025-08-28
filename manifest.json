@@ -1,0 +1,21 @@
+{
+  "name": "Flappy Bird",
+  "short_name": "FlappyBird",
+  "description": "Juega al Flappy Bird desde tu pantalla de inicio",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#70c5ce",
+  "theme_color": "#70c5ce",
+  "icons": [
+    {
+      "src": "https://e7.pngegg.com/pngimages/21/679/png-clipart-flappy-bird-pixel-art-minecraft-mallard-pipe-flappy-bird-text-photography.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://e7.pngegg.com/pngimages/21/679/png-clipart-flappy-bird-pixel-art-minecraft-mallard-pipe-flappy-bird-text-photography.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
